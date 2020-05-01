@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welness Meter</title>
+
+</head>
+<body> 
+	<body style="background-color:powderblue;">
+<h1>How are you doing?</h1>
+<p>Fill in this survey and see where you fall on our wellness meter!</p>
+<hr>
+<p>How many hours have you been sleeping a night (on average)?</p>
+<p>
+<select id="sleep">
+<option value="0"> </option>
+<option value="1">1-4</option>
+<option value="2">5-6</option>
+<option value="3">7-8</option>
+<option value="4">9-10</option>
+</select>
+</p>
+<hr>
+<p>What did you have for breakfast?</p>
+<p>
+<select id="breakfast">
+<option value="0"> </option>
+<option value="1">nothing</option>
+<option value="2">something small</option>
+<option value="3">some protein and carbs</option>
+<option value="4">a very well balanced meal that will keep me full and energized</option>
+</select>
+</p>
+<hr>
+<p>How is your social distancing period going</p>
+<p>
+<select id="worries">
+<option value="0"> </option>
+<option value="1">I am so bored and I don't know what to do with myself</option>
+<option value="2">I have found a couple fun things to do</option>
+<option value="3">I have found a bunch of great things to do, but I'm still a bit bored.</option>
+<option value="4">I'm really enjoying myself and making the best of this quarantine!</option>
+</select>
+</p>
+
+
+
+<button onclick="
+computeWellness(
+document.getElementById('sleep').value,
+document.getElementById('breakfast').value,
+document.getElementById('worries').value
+)">How well?</button>
+
+
+
+<p id="putHere"></p>
+
+<script>
+
+function computeWellness(sleep,breakfast,worries){
+var sleepNumber = Number(sleep);
+var breakfastNumber = Number(breakfast);
+var worriesNumber = Number(worries);
+var wellnessNumber = sleepNumber + breakfastNumber + worriesNumber;
+var wellnessStatement = "";
+if (wellnessNumber <= 3){
+wellnessStatement = "Take some time for self-care! I hope you feel better :)"
+} else if (wellnessNumber > 3 && wellnessNumber < 6) {
+wellnessStatement = "You're on the right track! Try changing just one element of your routine, it may help you feel better"
+} else if (wellnessNumber >= 6 && wellnessNumber < 10) {
+wellnessStatement = "You're doing wonderfully! We are almost through this:)"
+} else if (wellnessNumber >= 11) {
+wellnessStatement = "You are really taking advantage of this time off! Continue taking care of yourself! Great work!"
+} 
+document.getElementById('putHere').innerHTML = wellnessStatement;
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+	</title>
+</head>
+<body>
+
+</body>
+</html>
